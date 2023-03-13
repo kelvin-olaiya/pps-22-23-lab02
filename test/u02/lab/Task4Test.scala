@@ -26,6 +26,3 @@ class Task4Test:
   @Test def testSquareContains(): Unit =
     assertTrue(contains(Square(2.0), (1.0, 1.5)))
     assertFalse(contains(Square(2.0), (1.0, 3.5)))
-
-
-
