@@ -16,9 +16,9 @@ object LabDelivery extends App:
   val empty: String => Boolean = _ == ""
   val notEmpty = neg(empty)
 
-  println(notEmpty("foo"))
-  println(notEmpty(""))
-  println(notEmpty("foo") && !notEmpty(""))
+  println(notEmpty("foo")) // true
+  println(notEmpty("")) // false
+  println(notEmpty("foo") && !notEmpty("")) // true
   // ----------------------------------
 
   // TASK 2b
@@ -31,7 +31,7 @@ object LabDelivery extends App:
   def genericCompose[A, B, C](f: B => C, g: A => B): A => C = e => f(g(e))
 
   // -------------TEST-----------------
-  println(compose(_ - 1, _ * 2)(5))
+  println(compose(_ - 1, _ * 2)(5)) // 9
   println(genericCompose((x: String) => x.length, x => s"$x")(234)) // 3
   // ----------------------------------
 
@@ -92,14 +92,14 @@ object LabDelivery extends App:
   val s2: Option[Int] = Some(2)
   val s3: Option[Int] = None()
 
-  println(filter(Some(5))(_ > 2))
-  println(filter(Some(5))(_ > 8))
-  println(filter(None[Int]())(_ > 2))
+  println(filter(Some(5))(_ > 2)) // Some(5)
+  println(filter(Some(5))(_ > 8)) // None
+  println(filter(None[Int]())(_ > 2)) // None
 
-  println(map(Some(5))(_ > 2))
-  println(map(Some(5))(_ > 8))
-  println(map(None[Int]())(_ > 2))
+  println(map(Some(5))(_ > 2)) // Some(true)
+  println(map(Some(5))(_ > 8)) // Some(false)
+  println(map(None[Int]())(_ > 2)) // None
 
-  println(fold(Some(5))(1)(_ + 1))
-  println(fold(None[Int]())(1)(_ + 1))
+  println(fold(Some(5))(1)(_ + 1)) // 6
+  println(fold(None[Int]())(1)(_ + 1)) // 1
   // ----------------------------------
