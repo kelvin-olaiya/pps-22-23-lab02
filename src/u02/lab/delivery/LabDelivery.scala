@@ -65,7 +65,7 @@ object LabDelivery extends App:
       case (Rectangle(w, h), (x, y)) => inRange(0)(x)(w) && inRange(0)(y)(h)
       case (Square(l), (x, y)) => inRange(0)(x)(l) && inRange(0)(y)(l)
 
-  // Tests are on TODO
+  // Tests are on https://github.com/kelvin-olaiya/pps-22-23-lab02/blob/chore/delivery/test/u02/lab/Task4Test.scala
 
   // TASK 5
   enum Option[A]:
