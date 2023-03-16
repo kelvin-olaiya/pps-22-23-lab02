@@ -58,8 +58,6 @@ object LabDelivery extends App:
       case Square(l) => l * l
       case Rectangle(x, y) => 2 * (x + y)
 
-    private
-
     def contains(shape: Shape, point: (Double, Double)): Boolean =
       def inRange(a: Double)(x: Double)(b: Double) = a <= x && x <= b
       (shape, point) match
