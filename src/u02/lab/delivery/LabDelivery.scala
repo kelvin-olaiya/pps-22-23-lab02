@@ -58,12 +58,14 @@ object LabDelivery extends App:
       case Square(l) => l * l
       case Rectangle(x, y) => 2 * (x + y)
 
-    private def inRange(a: Double)(x: Double)(b: Double) = a <= x && x <= b
+    private
 
-    def contains(shape: Shape, point: (Double, Double)): Boolean = (shape, point) match
-      case (Circle(r), (x, y)) => Math.sqrt(x * x + y + y) < r // center is in (0,0)
-      case (Rectangle(w, h), (x, y)) => inRange(0)(x)(w) && inRange(0)(y)(h) // bottom-left is in (0, 0)
-      case (Square(l), (x, y)) => inRange(0)(x)(l) && inRange(0)(y)(l) // bottom-left is in (0, 0)
+    def contains(shape: Shape, point: (Double, Double)): Boolean =
+      def inRange(a: Double)(x: Double)(b: Double) = a <= x && x <= b
+      (shape, point) match
+        case (Circle(r), (x, y)) => Math.sqrt(x * x + y + y) < r // center is in (0,0)
+        case (Rectangle(w, h), (x, y)) => inRange(0)(x)(w) && inRange(0)(y)(h) // bottom-left is in (0, 0)
+        case (Square(l), (x, y)) => inRange(0)(x)(l) && inRange(0)(y)(l) // bottom-left is in (0, 0)
 
   // Tests are on https://github.com/kelvin-olaiya/pps-22-23-lab02/blob/chore/delivery/test/u02/lab/Task4Test.scala
 
